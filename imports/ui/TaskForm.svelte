@@ -1,11 +1,12 @@
 <script>
+    //import { TasksMethods } from '../api/tasksMethods';
     export let user = null;
     let newTask = '';
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
       if (!newTask) return;
 
-      Meteor.call('tasks.insert', newTask);
+      await Meteor.callAsync('tasks.insert', newTask);
 
       // Clear form
       newTask = '';
